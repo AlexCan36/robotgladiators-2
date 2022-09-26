@@ -1,17 +1,44 @@
 var playerName = window.prompt("What is your robot's name?");
-// Note the lack of quotation marks around playerName
-console.log("This logs a string, good for leaving yourself a message");
+var playerHealth = 100;
+var playerAttack = 10;
 
-// this will do math and log 20
-console.log(10 + 10);
+// you can also log multiple values at once like this
+console.log(playerName, playerAttack, playerHealth);
 
-//whats this?
-console.log("our robot name is " + playerName);
+var enemyName = "Roborto";
+var enemyHealth = 50;
+var enemyAttack = 12;
 
-// this creates a function named "fight"
+var fight = function() {
+    //Alert players that they are starting a round
+    window.alert("Welcome to robot gladiators!");
+    //Subtract the value of `playerAttack` from the value of `enemyHealth` and use that result to update the value in the `enemyHealth` variable
+    enemyHealth = enemyHealth - playerAttack;
+  // Log a resulting message to the console so we know that it worked.
+    console.log(
+        playerName + " attacked " + enemyName + "." + enemyName + " now has " + enemyHealth + " health remaining. "
+    );
+    // check enemys health
+        if (enemyHealth <= 0) {
+            window.alert(enemyName + " has died");
+        }
+            else {
+                window.alert(enemyName + " still has " + enemyHealth + " health left. ");
+            }
+        
+  // Subtract the value of `enemyAttack` from the value of `playerHealth` and use that result to update the value in the `playerHealth` variable.
+        playerHealth = playerHealth - enemyAttack;
+  // Log a resulting message to the console so we know that it worked.
+  console.log(
+    enemyName + " attacked " + playerName + ". " + playerName + " now has " + playerHealth + " health remaining. "
+  );
+    //checks player health
+    if (playerHealth <= 0) {
+        window.alert(playerName + " has died");
+    }
+    else {
+        window.alert(playerName + " still has " + playerHealth + " health left");
+    }
+    };
 
-function fight() {
-    window.alert("The fight has begun!");
-}
-
-//fight();
+fight();
